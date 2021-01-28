@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class PocRabbitApplication {
+public class RabbitConsumerApplication {
 
 	@Bean
 	MessageConverter messageConverter(ObjectMapper objectMapper) {
@@ -16,7 +16,7 @@ public class PocRabbitApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(PocRabbitApplication.class, args);
+		SpringApplication.run(RabbitConsumerApplication.class, args);
 	}
 
 }

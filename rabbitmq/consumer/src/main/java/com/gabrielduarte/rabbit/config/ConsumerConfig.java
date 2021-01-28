@@ -1,27 +1,19 @@
 package com.gabrielduarte.rabbit.config;
 
-import com.rabbitmq.client.ConnectionFactory;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.QueueBuilder;
+import com.gabrielduarte.rabbit.domain.Course;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@Slf4j
 @Configuration
 public class ConsumerConfig {
 
-    private final ConnectionFactory connectionFactory;
-    private final SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory;
+    @RabbitListener(queues = "SECOND-QUEUE-BASIC")
+    void receiveMessageFromTopic1(Course course) {
 
-    public ConsumerConfig(ConnectionFactory connectionFactory, SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory) {
-        this.connectionFactory = connectionFactory;
-        this.simpleRabbitListenerContainerFactory = simpleRabbitListenerContainerFactory;
     }
 
-    @RabbitListener(queues = {"SAGSA"})
-    void receiveMessageFromTopic(Message message) {
-        String
-    }
+
+
 }
