@@ -9,11 +9,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConsumerConfig {
 
-    @RabbitListener(queues = "SECOND-QUEUE-BASIC")
+    @RabbitListener(queues = "JSON-QUEUE-BASIC")
     void receiveMessageFromTopic1(Course course) {
-
+        log.info("name= {}", course.getName());
+        log.info("active= {}", course.getActive());
+        log.info("monthly fee= {}", course.getMonthlyFee());
+        log.info("start date= {}", course.getStartDate());
     }
-
-
 
 }

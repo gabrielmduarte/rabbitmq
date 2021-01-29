@@ -29,7 +29,7 @@ public class ExchangeController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("{exchange}/{routingKey}")
+    @PostMapping("{exchange}/{routingKey}/json")
     HttpEntity<Any> postJsonOnExchange(@PathVariable String exchange, @PathVariable String routingKey, @RequestBody Course message) {
         rabbitTemplate.convertAndSend(exchange, routingKey, message);
         return ResponseEntity.ok().build();
